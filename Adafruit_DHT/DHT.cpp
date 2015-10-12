@@ -13,7 +13,9 @@ DHT::DHT(uint8_t pin, uint8_t type, uint8_t count) {
   _type = type;
   _bit = digitalPinToBitMask(pin);
   //_port = digitalPinToPort(pin);
-  _maxcycles = 72000L;//microsecondsToClockCycles(1000);  // 1 millisecond timeout for
+  //_maxcycles = 72000L;//microsecondsToClockCycles(1000);  // 1 
+millisecond timeout for
+  _maxcycles = F_CPU/1000;//suggested by RogerClark.
                                                  // reading pulses from DHT sensor.
   // Note that count is now ignored as the DHT reading algorithm adjusts itself
   // basd on the speed of the processor.
